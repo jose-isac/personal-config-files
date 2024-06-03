@@ -21,6 +21,9 @@ filetype indent on
 "Enable syntax and line numbers
 syntax on
 set number
+set relativenumber
+
+colorscheme slate
 
 " Highlight cursor 
 set cursorline
