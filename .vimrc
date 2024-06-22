@@ -20,13 +20,8 @@ filetype indent on
 
 "Enable syntax and line numbers
 syntax on
-set number
 set relativenumber
-
-colorscheme slate
-
-" Highlight cursor 
-set cursorline
+set number
 
 " Tab related stuff
 set expandtab
@@ -49,6 +44,33 @@ set ignorecase
 set smartcase
 set incsearch
 
+set termguicolors
+colorscheme onedark
 " Others
 """"""""""""
 set nobackup
+
+" Mappings
+
+map <F7> :tabprev<CR>
+map <F8> :tabnext<CR>
+
+"""""""""""""""""""""""
+" PLUGINS
+"""""""""""""""""""""""
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+
+Plug 'sheerun/vim-polyglot'
+Plug 'joshdick/onedark.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
